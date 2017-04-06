@@ -76,6 +76,9 @@
 	                         <c:if test="${sessionScope.user.role == 'user'}">
 	                           <li><a href="#">구매이력조회</a></li>
 	                         </c:if>
+	                         <c:if test="${sessionScope.user.role == 'admin'}">
+	                           <li class="totalList"><a href="#">전체구매이력조회</a></li>
+	                         </c:if>
 	                         
 	                         <li><a href="#">최근본상품</a></li>
 	                         <li class="divider"></li>
@@ -139,6 +142,18 @@
 	 	$(function() {
 		 	$("a:contains('상 품 검 색')").on("click" , function() {
 				self.location = "/product/listProduct?menu=search"
+			}); 
+		});
+	 	
+	 	$(function() {
+		 	$(".totalList").on("click" , function() {
+				self.location = "/purchase/listSale"
+			}); 
+		});
+	 	
+	 	$(function() {
+		 	$("a:contains('구매이력조회')").on("click" , function() {
+				self.location = "/purchase/listPurchase"
 			}); 
 		});
 		

@@ -86,6 +86,8 @@ public class PurchaseController {
 		purchase.setPurchaseProd(productService.getProduct(prodNo));
 		
 		purchaseService.addPurchase(purchase);
+		
+		System.out.println("Sfdgfdgsdf"+purchase);
 		model.addAttribute("purchase", purchase);
 		
 		return "forward:/purchase/addPurchase.jsp";
@@ -220,13 +222,17 @@ public class PurchaseController {
 	}
 	
 	@RequestMapping(value="updateTranCode")
-	public String updateTranCode(@RequestParam("tranNo") int tranNo) throws Exception{
+	public String updateTranCode(@RequestParam("tranNo") int tranNo, HttpSession session) throws Exception{
 		
 		System.out.println("/purchase/updateTranCode");
-		
+		String role=((User)session.getAttribute("user")).getRole();
 		Purchase purchase = purchaseService.getPurchase(tranNo);
 		purchaseService.updateTranCode(purchase);
-		
+		if(role.equals("admin")){
+			return "redirect:/purchase/listSale";
+		}
 		return "redirect:/purchase/listPurchase";
 	}
 }
+
+

@@ -30,7 +30,7 @@
 		body {
             padding-top : 50px;
         }
-    </style>c
+    </style>
     
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
