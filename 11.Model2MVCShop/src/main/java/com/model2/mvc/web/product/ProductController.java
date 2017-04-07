@@ -1,5 +1,7 @@
 package com.model2.mvc.web.product;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
@@ -62,9 +65,20 @@ public class ProductController {
 	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
 
 		System.out.println("/product/addProduct : POST");
-		//Business Logic
+		product.setManuDate(product.getManuDate().replace("-", ""));
+		MultipartFile uploadfile = product.getUploadfile();
+        if (uploadfile != null) {
+            String fileName = uploadfile.getOriginalFilename();
+            product.setFileName(fileName);
+            try {
+                File file = new File("C:/Users/±Ë¡ÿøµ/git/11Mini/11.Model2MVCShop/WebContent/images/uploadFiles" + fileName);
+                uploadfile.transferTo(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+                
+            } 
+        }
 		productService.addProduct(product);
-		
 		
 		return "redirect:/product/listProduct?menu=search";
 	}
@@ -116,9 +130,23 @@ public class ProductController {
 
 		System.out.println("/product/updateProduct : POST");
 		//Business Logic
+		
+		MultipartFile uploadfile = product.getUploadfile();
+        if (uploadfile != null) {
+            String fileName = uploadfile.getOriginalFilename();
+            product.setFileName(fileName);
+            try {
+                File file = new File("C:/Users/±Ë¡ÿøµ/git/09Mini/09.Model2MVCShop(jQuery)/WebContent/images/uploadFiles" + fileName);
+                uploadfile.transferTo(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } 
+        }
+		
 		productService.updateProduct(product);
 		
 		model.addAttribute("product", product);
+		
 		
 		return "redirect:/product/listProduct?menu=manage";
 	}

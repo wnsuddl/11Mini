@@ -102,7 +102,7 @@
 	    </div>
 	    
 	    <!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal" name="detailForm">
+		<form class="form-horizontal" name="detailForm" enctype="multipart/form-data">
 		  
 		  <div class="form-group">
 		    <label for="prodNo" class="col-sm-offset-1 col-sm-3 control-label">상품번호</label>
@@ -118,21 +118,21 @@
 		  <div class="form-group">
 		    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상 품 명</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="prodName" name="prodName" placeholder="${product.prodName}" >
+		      <input type="text" class="form-control" id="prodName" name="prodName" value="${product.prodName}" >
 		    </div>
 		  </div>
 		
 		  <div class="form-group">
 		    <label for="prodDetail" class="col-sm-offset-1 col-sm-3 control-label">상품상세정보</label>
 		    <div class="col-sm-4">
-		      <input type="prodDetail" class="form-control" id="prodDetail" name="prodDetail" placeholder="${product.prodDetail}">
+		      <input type="prodDetail" class="form-control" id="prodDetail" name="prodDetail" value="${product.prodDetail}">
 		    </div>
 		  </div>
 		  
 		  <div class="form-group">
 		    <label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">제조일자</label>
 		    <div class="col-sm-4">
-		      <input type="manuDate" class="form-control" id="manuDate" name="manuDate" placeholder="${product.manuDate}">
+		      <input type="manuDate" class="form-control" id="manuDate" name="manuDate" value="${product.manuDate}">
 		    </div>
 		    <div class="col-sm-3">
 		      <button type="button" class="btn btn-info"><i class="glyphicon glyphicon-calendar" id="date"></i></button>
@@ -143,14 +143,14 @@
 		  <div class="form-group">
 		    <label for="price" class="col-sm-offset-1 col-sm-3 control-label">가격</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="price" name="price" placeholder="${product.price}">
+		      <input type="text" class="form-control" id="price" name="price" value="${product.price}">
 		    </div>
 		  </div>
 		  
 		  <div class="form-group">
-		    <label for="fileName" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
+		    <label for="uploadfile" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="fileName" name="fileName"  placeholder="${product.fileName}">
+		      <input type="file" class="form-control" id="uploadfile" name="uploadfile"  value="${product.fileName}">
 		    </div>
 		  </div>
 		  

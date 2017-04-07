@@ -106,7 +106,7 @@
 	    </div>
 	    
 	    <!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal" name="detailForm">
+		<form class="form-horizontal" name="detailForm" enctype="multipart/form-data">
 		
 		  <div class="form-group">
 		    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상 품 명</label>
@@ -141,9 +141,9 @@
 		  </div>
 		  
 		  <div class="form-group">
-		    <label for="fileName" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
+		    <label for="uploadfile" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="fileName" name="fileName"  placeholder="이미지를 입력해주세요">
+		      <input type="file" class="form-control" id="uploadfile" name="uploadfile" >
 		    </div>
 		  </div>
 		  
